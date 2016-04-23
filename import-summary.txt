@@ -1,0 +1,137 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* .idea\
+* .idea\.name
+* .idea\ant.xml
+* .idea\compiler.xml
+* .idea\copyright\
+* .idea\copyright\profiles_settings.xml
+* .idea\encodings.xml
+* .idea\libraries\
+* .idea\libraries\activation.xml
+* .idea\libraries\additionnal.xml
+* .idea\libraries\mail.xml
+* .idea\misc.xml
+* .idea\modules.xml
+* .idea\scopes\
+* .idea\scopes\scope_settings.xml
+* .idea\uiDesigner.xml
+* .idea\vcs.xml
+* .idea\workspace.xml
+* faceRecognizer.iml
+* haarcascade_frontalface_alt.xml
+* ic_launcher-web.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:18.+
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => faceRecognizer\src\main\AndroidManifest.xml
+* libs\activation.jar => faceRecognizer\libs\activation.jar
+* libs\additionnal.jar => faceRecognizer\libs\additionnal.jar
+* libs\armeabi-v7a\libavcodec.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libavcodec.so
+* libs\armeabi-v7a\libavdevice.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libavdevice.so
+* libs\armeabi-v7a\libavfilter.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libavfilter.so
+* libs\armeabi-v7a\libavformat.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libavformat.so
+* libs\armeabi-v7a\libavutil.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libavutil.so
+* libs\armeabi-v7a\libjniARToolKitPlus.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniARToolKitPlus.so
+* libs\armeabi-v7a\libjniavcodec.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniavcodec.so
+* libs\armeabi-v7a\libjniavdevice.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniavdevice.so
+* libs\armeabi-v7a\libjniavfilter.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniavfilter.so
+* libs\armeabi-v7a\libjniavformat.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniavformat.so
+* libs\armeabi-v7a\libjniavutil.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniavutil.so
+* libs\armeabi-v7a\libjnicvkernels.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjnicvkernels.so
+* libs\armeabi-v7a\libjniopencv_calib3d.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_calib3d.so
+* libs\armeabi-v7a\libjniopencv_contrib.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_contrib.so
+* libs\armeabi-v7a\libjniopencv_core.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_core.so
+* libs\armeabi-v7a\libjniopencv_features2d.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_features2d.so
+* libs\armeabi-v7a\libjniopencv_flann.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_flann.so
+* libs\armeabi-v7a\libjniopencv_highgui.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_highgui.so
+* libs\armeabi-v7a\libjniopencv_imgproc.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_imgproc.so
+* libs\armeabi-v7a\libjniopencv_legacy.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_legacy.so
+* libs\armeabi-v7a\libjniopencv_ml.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_ml.so
+* libs\armeabi-v7a\libjniopencv_nonfree.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_nonfree.so
+* libs\armeabi-v7a\libjniopencv_objdetect.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_objdetect.so
+* libs\armeabi-v7a\libjniopencv_photo.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_photo.so
+* libs\armeabi-v7a\libjniopencv_stitching.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_stitching.so
+* libs\armeabi-v7a\libjniopencv_video.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_video.so
+* libs\armeabi-v7a\libjniopencv_videostab.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniopencv_videostab.so
+* libs\armeabi-v7a\libjnipostproc.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjnipostproc.so
+* libs\armeabi-v7a\libjniswresample.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniswresample.so
+* libs\armeabi-v7a\libjniswscale.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libjniswscale.so
+* libs\armeabi-v7a\libopencv_calib3d.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_calib3d.so
+* libs\armeabi-v7a\libopencv_contrib.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_contrib.so
+* libs\armeabi-v7a\libopencv_core.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_core.so
+* libs\armeabi-v7a\libopencv_features2d.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_features2d.so
+* libs\armeabi-v7a\libopencv_flann.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_flann.so
+* libs\armeabi-v7a\libopencv_highgui.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_highgui.so
+* libs\armeabi-v7a\libopencv_imgproc.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_imgproc.so
+* libs\armeabi-v7a\libopencv_legacy.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_legacy.so
+* libs\armeabi-v7a\libopencv_ml.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_ml.so
+* libs\armeabi-v7a\libopencv_nonfree.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_nonfree.so
+* libs\armeabi-v7a\libopencv_objdetect.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_objdetect.so
+* libs\armeabi-v7a\libopencv_photo.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_photo.so
+* libs\armeabi-v7a\libopencv_stitching.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_stitching.so
+* libs\armeabi-v7a\libopencv_ts.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_ts.so
+* libs\armeabi-v7a\libopencv_video.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_video.so
+* libs\armeabi-v7a\libopencv_videostab.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libopencv_videostab.so
+* libs\armeabi-v7a\libpostproc.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libpostproc.so
+* libs\armeabi-v7a\libswresample.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libswresample.so
+* libs\armeabi-v7a\libswscale.so => faceRecognizer\src\main\jniLibs\armeabi-v7a\libswscale.so
+* libs\javacpp.jar => faceRecognizer\libs\javacpp.jar
+* libs\javacv.jar => faceRecognizer\libs\javacv.jar
+* libs\mail.jar => faceRecognizer\libs\mail.jar
+* res\ => faceRecognizer\src\main\res\
+* src\ => faceRecognizer\src\main\java\
+* src\edu\uj\faceRecognizer\faceRecognition\utilities\haarcascade_frontalface_alt.xml => faceRecognizer\src\main\resources\edu\uj\faceRecognizer\faceRecognition\utilities\haarcascade_frontalface_alt.xml
+
+Missing Android Support Repository:
+-----------------------------------
+Some useful libraries, such as the Android Support Library, are
+installed from a special Maven repository, which should be installed
+via the SDK manager.
+
+It looks like this library is missing from your SDK installation at:
+null
+
+To install it, open the SDK manager, and in the Extras category,
+select "Android Support Repository". You may also want to install the
+"Google Repository" if you want to use libraries like Google Play
+Services.
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

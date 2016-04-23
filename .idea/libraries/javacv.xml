@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javacv">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/faceRecognizer/libs/javacv.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

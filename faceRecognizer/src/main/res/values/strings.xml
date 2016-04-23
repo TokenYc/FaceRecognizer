@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Face Detector</string>
+    <string name="hello_world">在进行认证前要先拍3张照作为认证参考数据哦</string>
+    <string name="menu_settings">Settings</string>
+    <string name="buttonText1">开始认证</string>
+    <string name="buttonText2">保存人脸信息</string>
+    <string name="send_email">Send email</string>
+    <string name="set_email">Set email</string>
+    <string name="save">保存</string>
+    <string name="back">返回</string>
+    <string name="person_name">姓名</string>
+    <string name="title_activity_person">Person</string>
+
+</resources>
