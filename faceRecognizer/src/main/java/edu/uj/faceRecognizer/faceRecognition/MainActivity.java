@@ -2,23 +2,15 @@ package edu.uj.faceRecognizer.faceRecognition;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import edu.uj.faceRecognizer.faceRecognition.email.SetEmail;
 
 // ----------------------------------------------------------------------
 

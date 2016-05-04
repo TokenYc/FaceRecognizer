@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
+
 import com.googlecode.javacpp.Loader;
 import com.googlecode.javacv.cpp.opencv_contrib;
 import com.googlecode.javacv.cpp.opencv_core;
 import com.googlecode.javacv.cpp.opencv_objdetect;
-import edu.uj.faceRecognizer.faceRecognition.email.MailSender;
+
 import edu.uj.faceRecognizer.faceRecognition.utilities.ToastHelper;
 
 import java.io.File;
@@ -61,6 +61,7 @@ public class FaceRecognizer {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                //加载分类器文件
                 File classifierFile = null;
                 try {
                     classifierFile = Loader.extractResource(getClass(),
@@ -112,6 +113,7 @@ public class FaceRecognizer {
                 return name.toLowerCase().endsWith(".jpg");
             }
         };
+        //加载所有的图片
         File[] imageFiles = root.listFiles(jpg);
 
         opencv_core.MatVector images = new opencv_core.MatVector(imageFiles.length);
@@ -127,7 +129,7 @@ public class FaceRecognizer {
         names.put("unknown", -1);
 
         int i = 0;
-
+        //将每个图片处理成灰度图
         for (File image : imageFiles) {
             img = cvLoadImage(image.getAbsolutePath());
             //图片处理，转换成灰度图。
@@ -150,11 +152,13 @@ public class FaceRecognizer {
             Log.i("faceRecognizer", String.valueOf(label));
         }
 
+        //初始化LBP人脸识别器
         faceRecognizer = com.googlecode.javacv.cpp.opencv_contrib.createLBPHFaceRecognizer();
 
         faceRecognizer.set("threshold", 4000.0);
 
         try {
+            //训练所有的图片
             faceRecognizer.train(images, labels);
         } catch (Exception e) {
             ToastHelper.notify(context, "Problem with training");
@@ -167,6 +171,7 @@ public class FaceRecognizer {
         Log.i("faceRecognizer", "procesimage");
         String name="";
         int f = SUBSAMPLING_FACTOR;
+        //创建一个人脸灰度图，用于稍后人脸检测
         if (grayImage == null || grayImage.width() != width/f || grayImage.height() != height/f) {
             grayImage = opencv_core.IplImage.create(width / f, height / f, IPL_DEPTH_8U, 1);
         }
@@ -183,19 +188,21 @@ public class FaceRecognizer {
             }
         }
 
+        //初始化haar人脸检测器
         faces = cvHaarDetectObjects(grayImage, classifier, storage, 1.1, 3, CV_HAAR_DO_CANNY_PRUNING);
         if (faces != null) {
             int total = faces.total();
             if (total > 1) {
                 total = 1;
             }
-            for (int i = 0; i < total; i++) { //Only one face
+            for (int i = 0; i < total; i++) { //人脸识别只识别一个
                 opencv_core.CvRect r = new opencv_core.CvRect(cvGetSeqElem(faces, i));
 
 
                 opencv_core.IplImage faceToRecognize = getFace(grayImage, r);
 
                 if (faceToRecognize != null) {
+                    //获取识别出的姓名
                     name=predictFace(faceToRecognize);
                 }
             }
@@ -205,6 +212,7 @@ public class FaceRecognizer {
         return name;
     }
 
+    //人脸识别
     private String predictFace(opencv_core.IplImage testImage) {
         if (testImage == null) {
             ToastHelper.notify(context, "No test image");
@@ -214,6 +222,7 @@ public class FaceRecognizer {
         if (faceRecognizer != null) {
             try {
                 String recognizedPerson = "";
+                //灰度图放到识别器里识别
                 int predictedLabel = faceRecognizer.predict(testImage);
 
                 for (Map.Entry<String, Integer> entry : names.entrySet()) {
@@ -241,6 +250,7 @@ public class FaceRecognizer {
         }
     }
 
+    //从灰度图中扣出人脸的部分并保存到本地
     private IplImage getFace(IplImage image, CvRect region) {
         IplImage imageCropped;
         CvSize size = new CvSize();

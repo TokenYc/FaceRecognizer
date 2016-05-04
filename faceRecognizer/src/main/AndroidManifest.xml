@@ -32,7 +32,6 @@
                 android:name="edu.uj.faceRecognizer.faceRecognition.PersonActivity"
                 android:label="@string/title_activity_person" >
         </activity>
-        <activity android:name=".email.SetEmail"/>
     </application>
 
 </manifest>

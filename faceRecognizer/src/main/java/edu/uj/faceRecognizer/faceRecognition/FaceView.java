@@ -49,7 +49,7 @@ class FaceView extends View implements Camera.PreviewCallback {
         super(context);
         try {
             progressDialog = new ProgressDialog(context);
-            progressDialog.setMessage("正在加载");
+            progressDialog.setMessage("正在加载分类器");
             progressDialog.show();
             this.faceRecognizer = new FaceRecognizer(context,handler);
 //            javaCVCamshift = new JavaCVCamshift();
@@ -60,9 +60,10 @@ class FaceView extends View implements Camera.PreviewCallback {
 
     }
 
-
+    //preview每一帧的回调
     public void onPreviewFrame(final byte[] data, final Camera camera) {
         try {
+            //获取回调的一帧，放到识别器里识别
             Camera.Size size = camera.getParameters().getPreviewSize();
             name = faceRecognizer.processImage(data, size.width, size.height);
             if (faceRecognizer.getFaces()!=null&&faceRecognizer.getFaces().total()>0) {
