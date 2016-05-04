@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaCVDemo.iml" filepath="$PROJECT_DIR$/JavaCVDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FaceRecognizer.iml" filepath="$PROJECT_DIR$/FaceRecognizer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/faceRecognizer/faceRecognizer.iml" filepath="$PROJECT_DIR$/faceRecognizer/faceRecognizer.iml" />
     </modules>

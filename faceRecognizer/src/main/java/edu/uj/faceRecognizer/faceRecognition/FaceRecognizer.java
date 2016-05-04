@@ -2,6 +2,7 @@ package edu.uj.faceRecognizer.faceRecognition;
 
 import android.content.Context;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 import com.googlecode.javacpp.Loader;
@@ -55,27 +56,46 @@ public class FaceRecognizer {
         return faces;
     }
 
-    public FaceRecognizer(Context context) throws IOException {
+    public FaceRecognizer(final Context context, final Handler handler) throws IOException {
         this.context = context;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                File classifierFile = null;
+                try {
+                    classifierFile = Loader.extractResource(getClass(),
+                            "/edu/uj/faceRecognizer/faceRecognition/utilities/haarcascade_frontalface_alt2.xml",
+                            context.getCacheDir(), "classifier", ".xml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (classifierFile == null || classifierFile.length() <= 0) {
+                    try {
+                        throw new IOException("Could not extract the classifier file from Java resource.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
 
+                // Preload the opencv_objdetect module to work around a known bug.
+                Loader.load(opencv_objdetect.class);
+                classifier = new opencv_objdetect.CvHaarClassifierCascade(cvLoad(classifierFile.getAbsolutePath()));
+                classifierFile.delete();
+                if (classifier.isNull()) {
+                    try {
+                        throw new IOException("Could not load the classifier file.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                storage = opencv_core.CvMemStorage.create();
+
+                loadFaceRecognizer();
+                handler.sendEmptyMessage(FaceView.LOAD_OVER);
+            }
+        }).start();
         // Load the classifier file from Java resources.
-        File classifierFile = Loader.extractResource(getClass(),
-                "/edu/uj/faceRecognizer/faceRecognition/utilities/haarcascade_frontalface_alt2.xml",
-                context.getCacheDir(), "classifier", ".xml");
-        if (classifierFile == null || classifierFile.length() <= 0) {
-            throw new IOException("Could not extract the classifier file from Java resource.");
-        }
 
-        // Preload the opencv_objdetect module to work around a known bug.
-        Loader.load(opencv_objdetect.class);
-        classifier = new opencv_objdetect.CvHaarClassifierCascade(cvLoad(classifierFile.getAbsolutePath()));
-        classifierFile.delete();
-        if (classifier.isNull()) {
-            throw new IOException("Could not load the classifier file.");
-        }
-        storage = opencv_core.CvMemStorage.create();
-
-        loadFaceRecognizer();
     }
 
     private void loadFaceRecognizer() {
